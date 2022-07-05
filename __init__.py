@@ -8,7 +8,8 @@ class AppLauncher(MycroftSkill):
     @intent_file_handler('launcher.app.intent')
     def handle_launcher_app(self, message):
         app = message.data.get('app')
-        self.log.info("This is an info level log message.")
+        self.log.info("This is an info log message.")
+
 
         self.speak_dialog('launcher.app', data={
             'app': app
