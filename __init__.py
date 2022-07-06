@@ -17,13 +17,14 @@ class AppLauncher(MycroftSkill):
         self.log.info("Starting app %s", exists)
         
         if(exists != ''):
+            self.speak_dialog('launcher.app', data={
+                'app': app
+            })
             subprocess.call("{} &".format(app), shell=True)
         else:
             print("Does not Exist")
 
-        self.speak_dialog('launcher.app', data={
-            'app': app
-        })
+
 
 
 
