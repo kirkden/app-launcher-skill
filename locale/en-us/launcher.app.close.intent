@@ -1,4 +1,3 @@
-The program {app} has been closed
-The program {app} has been terminated
-The application {app} has been closed
-The application {app} has been terminated
+close {app}
+stop {app}
+kill {app}
