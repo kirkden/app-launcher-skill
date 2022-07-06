@@ -22,7 +22,7 @@ class AppLauncher(MycroftSkill):
             })
             subprocess.call("{} &".format(app), shell=True)
         else:
-            self.speak_dialog("launcher.app.not.exists", data={
+            self.speak_dialog('launcher.app.not.exists', data={
                 'app': app})
             print("Does not Exist")
 
