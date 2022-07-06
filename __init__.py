@@ -29,7 +29,10 @@ class AppLauncher(MycroftSkill):
     @intent_file_handler('launcher.app.close.intent')
     def handle_launcher_app_close(self, message):
         app = message.data.get('app')
-
+        subprocess.call("killall {} &".format(app), shell=True)
+        self.speak_dialog('launcher.app.close', data={
+            'app': app
+        })
         self.log.info("Closing app %s", app)
         
 def create_skill():
