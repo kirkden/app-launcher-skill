@@ -9,12 +9,23 @@ class AppLauncher(MycroftSkill):
     def handle_launcher_app(self, message):
         app = message.data.get('app')
 
+        exists = subprocess.Popen("which {}".format(app),
+                                    stdout=subprocess.PIPE,
+                                    shell=True).stdout.read()
+
+        exists = exists.decode("utf-8")
+        self.log.info("Starting app %s", exists)
+        
+        if(exists != ''):
+            subprocess.call("{} &".format(app), shell=True)
+        else:
+            print("Does not Exist")
+
         self.speak_dialog('launcher.app', data={
             'app': app
         })
 
-        self.log.info("Starting app %s", app)
-        aa = subprocess.Popen(app, shell=True)
+
 
 
 def create_skill():
