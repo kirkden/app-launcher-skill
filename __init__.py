@@ -26,11 +26,12 @@ class AppLauncher(MycroftSkill):
                 'app': app})
             print("Does not Exist")
 
+    @intent_file_handler('launcher.app.close.intent')
+    def handle_launcher_app(self, message):
+        app = message.data.get('app')
 
-
-
-
-
+        self.log.info("Closing app %s", app)
+        
 def create_skill():
     return AppLauncher()
 
